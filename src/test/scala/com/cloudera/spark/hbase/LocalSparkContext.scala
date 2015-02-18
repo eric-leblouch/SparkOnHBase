@@ -27,6 +27,7 @@ import org.apache.spark.SparkContext
 trait LocalSparkContext extends BeforeAndAfterEach with BeforeAndAfterAll { self: Suite =>
 
   @transient var sc: SparkContext = _
+  System.setProperty("spark.driver.allowMultipleContexts","true")
 
   override def beforeAll() {
     //InternalLoggerFactory.setDefaultFactory(new Slf4JLoggerFactory())
